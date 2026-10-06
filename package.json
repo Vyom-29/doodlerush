@@ -1,0 +1,38 @@
+{
+  "name": "doodlerush",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DoodleRush multiplayer drawing and guessing game monorepo",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "predev": "npm run build --workspace=@doodlerush/shared && npm run build --workspace=@doodlerush/game-engine",
+    "dev": "concurrently --kill-others --names web,server --prefix-colors cyan,magenta \"npm run dev --workspace=@doodlerush/web\" \"npm run dev --workspace=@doodlerush/server\"",
+    "dev:web": "npm run build --workspace=@doodlerush/shared && npm run build --workspace=@doodlerush/game-engine && npm run dev --workspace=@doodlerush/web",
+    "dev:server": "npm run build --workspace=@doodlerush/shared && npm run build --workspace=@doodlerush/game-engine && npm run dev --workspace=@doodlerush/server",
+    "build": "npm run build --workspace=@doodlerush/shared && npm run build --workspace=@doodlerush/game-engine && npm run build --workspace=@doodlerush/web && npm run build --workspace=@doodlerush/server",
+    "test": "npm run test --workspace=@doodlerush/game-engine && npm run build --workspace=@doodlerush/shared && npm run build --workspace=@doodlerush/game-engine && npm run test --workspace=@doodlerush/server",
+    "typecheck": "npm run typecheck --workspace=@doodlerush/shared && npm run typecheck --workspace=@doodlerush/game-engine && npm run typecheck --workspace=@doodlerush/server && npm run typecheck --workspace=@doodlerush/web",
+    "lint": "eslint apps packages eslint.config.mjs",
+    "start:server": "npm run start --workspace=@doodlerush/server",
+    "start:web": "npm run start --workspace=@doodlerush/web",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "concurrently": "^10.0.5",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.8",
+    "prettier": "^3.9.9",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3"
+  },
+  "overrides": {
+    "shell-quote": "^1.11.0"
+  }
+}
