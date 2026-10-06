@@ -1,4 +1,4 @@
-import type { FinalGameResults } from "@doodlerush/game-engine";
+import type { FinalGameResults, PlayerScore } from "@doodlerush/game-engine";
 
 import { Scoreboard } from "@/components/scoreboard/Scoreboard";
 import { AvatarBadge } from "@/components/ui/AvatarBadge";
@@ -25,7 +25,7 @@ export function GameResultsScreen({
   canHostActions = true,
 }: GameResultsScreenProps) {
   const playersById = new Map(players.map((player) => [player.id, player]));
-  const ranked: ScoredPlayerView[] = results.rankings.flatMap((score) => {
+  const ranked: ScoredPlayerView[] = results.rankings.flatMap((score: PlayerScore) => {
     const player = playersById.get(score.playerId);
     return player ? [{ ...player, score: score.score }] : [];
   });
