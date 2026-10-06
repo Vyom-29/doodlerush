@@ -13,6 +13,8 @@
     "dev:web": "npm run build --workspace=@doodlerush/shared && npm run build --workspace=@doodlerush/game-engine && npm run dev --workspace=@doodlerush/web",
     "dev:server": "npm run build --workspace=@doodlerush/shared && npm run build --workspace=@doodlerush/game-engine && npm run dev --workspace=@doodlerush/server",
     "build": "npm run build --workspace=@doodlerush/shared && npm run build --workspace=@doodlerush/game-engine && npm run build --workspace=@doodlerush/web && npm run build --workspace=@doodlerush/server",
+    "build:server": "npm run build --workspace=@doodlerush/shared && npm run build --workspace=@doodlerush/game-engine && npm run build --workspace=@doodlerush/server",
+    "build:web": "npm run build --workspace=@doodlerush/shared && npm run build --workspace=@doodlerush/game-engine && npm run build --workspace=@doodlerush/web",
     "test": "npm run test --workspace=@doodlerush/game-engine && npm run build --workspace=@doodlerush/shared && npm run build --workspace=@doodlerush/game-engine && npm run test --workspace=@doodlerush/server",
     "typecheck": "npm run typecheck --workspace=@doodlerush/shared && npm run typecheck --workspace=@doodlerush/game-engine && npm run typecheck --workspace=@doodlerush/server && npm run typecheck --workspace=@doodlerush/web",
     "lint": "eslint apps packages eslint.config.mjs",
